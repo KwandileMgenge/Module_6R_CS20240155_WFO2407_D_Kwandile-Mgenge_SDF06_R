@@ -21,3 +21,296 @@ body {
 img {
     display: block;
 }
+
+/* 
+styles referenced from 
+- Dot Net Codes - Instagram Profile Clone on YouTube
+and also copied some properties 
+- https://codepen.io/GeorgePark/pen/VXrwOP 
+*/
+
+.container {
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 0 5rem;
+}
+
+.btn {
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Profile Styling */
+
+.profile {
+    padding: 5rem 0;
+}
+
+.profile-image {
+    float: left;
+    width: calc(33.333% - 1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3rem;
+}
+
+.profile-image img {
+    border: 10px solid #4b7165;
+    border-radius: 50%;
+}
+
+.profile-user-settings, .profile-stats, .profile-bio {
+    float: left;
+    width: calc(66.666% - 2rem);
+}
+
+.profile-user-settings {
+    margin-top: 1.5rem;
+}
+
+.profile-user-name {
+    display: inline-block;
+    font-size: 3.5rem;
+    font-weight: 300;
+}
+
+.profile-edit-btn {
+    font-size: 1.5rem;
+    line-height: 2;
+    border: 0.2rem solid #dbdbdb;
+    border-radius: 0.5rem;
+    padding: 0 2.5rem;
+    margin-left: 2rem;
+}
+
+.profile-settings-btn {
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.profile-stats {
+    margin-top: 2.5rem;
+}
+
+.profile-stats li {
+    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-right: 4rem;
+    cursor: pointer;
+}
+
+.profile-bio {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 2.5rem;
+}
+
+.profile-real-name, .profile-stat-count, .profile-edit-btn {
+    font-weight: 600;
+}
+
+/* Gallery Styling */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 1rem;
+    padding-bottom: 3rem;
+}
+
+.gallery-item {
+    position: relative;
+    flex: 1 0 22rem;
+    margin: 1rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.gallery-item:hover .gallery-item-info, .gallery-item:focus .gallery-item-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.gallery-item-info {
+    display: none;
+}
+
+.gallery-item-info li {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.gallery-item-likes {
+    margin-right: 2.5rem;
+}
+
+.gallery-item-type {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 2.5rem;
+    text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.5);
+}
+
+.gallery-image {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Loader */
+.loader {
+    width: 35px;
+    height: 35px;
+    border: 5px solid #999;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    margin: 20px auto;
+    animation: loader 1s linear infinite;
+}
+@keyframes loader {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Media Query */
+
+@media screen and (max-width: 750px) {
+    .profile {
+        display: flex;
+        padding: 4rem 0;
+    }
+
+    .profile-image img {
+        border: 5px solid #4b7165;
+        width: 10rem;
+    }
+
+    .profile-user-settings {
+        flex-basis: calc(100% - 10.7rem);
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+
+    .profile-user-name {
+        font-size: 2.5rem;
+    }
+
+    .profile-edit-btn {
+        order: 1;
+        padding: 0;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .profile-edit-btn {
+        margin-left: 0;
+    }
+
+    .profile-bio {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .profile-edit-btn, .profile-bio, .profile-stats {
+        flex-basis: 100%;
+    }
+
+    .profile-stats {
+        order: 1;
+        margin-top: 1.5rem;
+    }
+
+    .profile-stats ul {
+        display: flex;
+        text-align: center;
+        padding: 1.5rem 0;
+    }
+
+    .profile-stats li {
+        font-size: 1.5rem;
+        flex: 1;
+        margin: 0;
+    }
+
+    .profile-stat-count {
+        display: block;
+    }
+}
+
+/* Grid Support For Profile */
+@supports (display: grid) {
+    .profile {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: repeat(3, auto);
+        grid-column-gap: 3rem;
+        align-items: center;
+    }
+
+    .profile-image {
+        grid-row: 1 / -1;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 2rem;
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+    .profile-image, .profile-user-settings, .profile-stats, .profile-bio, .gallery-item, .gallery {
+        width: auto;
+        margin: 0;
+    }
+
+    @media (max-width: 750px) {
+        .profile {
+            grid-template-columns: 1fr 2fr;
+            grid-row-gap: 1.5rem;
+        }
+
+        .profile-user-settings {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-gap: 1rem;
+        }
+
+        .profile-edit-btn, .profile-stats, .profile-bio {
+            grid-column: 1 / -1;
+        }
+
+        .profile-user-settings, .profile-edit-btn, .profile-settings-btn, .profile-bio, .profile-stats {
+            margin: 0;
+        }
+    }
+}
